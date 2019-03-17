@@ -1,8 +1,107 @@
+/*===============  general style  ================*/
 
-.grosswrapper {
+*, *::before, *::after {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+/*===============  header  ================*/
+
+.header {
+    text-align: center;
+    padding: 1rem;
+    background-color: gray;
+}
+    .fixed-top {
+        position: fixed;
+        right: 0;
+        top: 0;
+        left: 0;
+        z-index: 1030;
+    }
+    .header__title {
+        margin: 0px;
+        color: white;
+    }
+
+/*===============  main  ================*/
+
+.main {
     display: flex;
     background-color: aquamarine;
     height: 100vh;
-    width: 80%;
+    width: 90%;
     margin: auto;
+}
+    .main__wrapper {
+        /*background-color: aquamarine;*/
+        /*height: 100vh;*/
+        width: 90%;
+        margin: auto;
+    }
+        .main__toplinebox,
+        .main__bottomlinebox {
+            max-width: 50rem;
+            margin: auto;
+            background-color: darkred;
+            /*display: flex;*/
+            /*flex-wrap: wrap;*/
+            height: 3rem;
+        }
+        .main__firebox {
+            background-color: yellow;
+            display: flex;
+            flex-wrap: wrap;
+            height: 24rem;
+            max-width: 50rem;
+            margin: auto;
+        }
+
+/*===============  footer  ================*/
+
+.footer {
+    text-align: center;
+    padding: 1rem;
+    background-color: gray;
+}
+    .fixed-bottom {
+        position: fixed;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        z-index: 1030;
+    }
+
+/*===============  media-query  ================*/
+
+@media screen and (max-width: 820px) {
+    .main__firebox {
+        height: 20rem;
+    }
+    .main__toplinebox,
+    .main__bottomlinebox {
+        height: 2.5rem;
+    }
+
+}
+@media screen and (max-width: 640px) {
+    .main__firebox {
+        height: 16rem;
+    }
+    .main__toplinebox,
+    .main__bottomlinebox {
+        height: 2rem;
+    }
+
+}
+@media screen and (max-width: 460px) {
+    .main {
+        width: 100%;
+    }
+    .main__wrapper {
+        width: 100%;
+    }
+    .main__firebox {
+        height: 12rem;
+    }
 }
