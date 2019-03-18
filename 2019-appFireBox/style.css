@@ -28,7 +28,7 @@
 
 .main {
     display: flex;
-    background-color: aquamarine;
+    /*background-color: aquamarine;*/
     height: 100vh;
     width: 90%;
     margin: auto;
@@ -49,13 +49,37 @@
             height: 3rem;
         }
         .main__firebox {
-            background-color: yellow;
+            /*background-color: yellow;*/
             display: flex;
             flex-wrap: wrap;
+            justify-content: space-around;
+            align-items: center;
             height: 24rem;
             max-width: 50rem;
             margin: auto;
+            border-left: 3px solid gray;
+            border-right: 3px solid gray;
         }
+            .main__match {
+                display: flex;
+                width: 6rem;
+                height: 6rem;
+                border: 2px solid gray;
+                border-radius: 50%;
+                /*margin: 1px;*/
+
+            }
+            .main__match:hover .main__match-head {
+                background-color: darkred;
+            }
+                .main__match-head {
+                    width: 4rem;
+                    height: 4rem;
+                    background-color: #795548cc;
+                    border-radius: 50%;
+                    margin: auto;
+                    transition: background-color 200ms linear;
+                }
 
 /*===============  footer  ================*/
 
