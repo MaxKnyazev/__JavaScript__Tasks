@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <h1>11111111111111</h1>
+
+    <h2 class="first--h2">2222222222222</h2>
+    <p class="first--p">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque, numquam?</p>
+    <button class="first--button">Change</button>
+
+    <h2 class="second--h2">33333333333333</h2>
+    <p class="second--p">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate, eligendi.</p>
+    <button class="second--button">Change</button>
+
+    <style>
+        .blue40 {
+            color: blue;
+            font-size: 2.5em;
+        }
+
+    </style>
+
+    <script>
+        $(function() {
+
+            function Blue40() {
+                this.color = 'blue';
+                this.fontSize = '2.5em';
+            }
+
+            let blue40 = new Blue40();
+
+            $('.first--button').on('click', function() {
+               $('.first--h2, .first--p').css(blue40);
+            });
+
+            $('.second--button').on('click', function() {
+                $('.second--h2, .second--p').css(blue40);
+            });
+
+            console.dir(blue40);
+            /* todo: 1) Оставить только один h2 и p.
+                     2) Создать три кнопки, R, G, B.
+                     3) Написать универсальный конструктор с двумя параметрами: color и font-size.
+                     4) Для каждой кнопки создать свой экземпляр конструктора.
+                     5) Все переделать под класс.
+             */
+        });
+    </script>
+</body>
+</html>

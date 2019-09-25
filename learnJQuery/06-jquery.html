@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <title>Document</title>
+</head>
+<body>
+<section class = "content__wrapper">
+    <div class = "content__square"></div>
+</section>
+
+<style>
+    .content__wrapper {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
+
+    .content__square {
+        width: 50vh;
+        height: 50vh;
+        background-color: blue;
+    }
+
+    .invisible {
+        opacity: 0;
+    }
+</style>
+
+<script>
+    ;$(function () {
+        $.prototype.cl = function () {
+            console.log(this);
+            return $(this);
+        };
+
+        $('.content__square').on('click', function () {
+            $(this).fadeOut(5000).delay(1000).fadeIn(5000).cl();
+        });
+
+        console.dir($);
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <title>Document</title>
+</head>
+<body>
+<section class = "content__wrapper">
+    <h1 class = "content__header">Count = <span class="content__count">0</span></h1>
+
+    <div class="content__buttons">
+        <button class = "content__add">Use +1</button>
+        <button class = "content__remove">Use -1</button>
+    </div>
+</section>
+
+<style>
+    .content__wrapper {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+        height: 100vh;
+    }
+</style>
+
+<script>
+    // window.onload = function () {
+    //     let buttonAdd = document.querySelector('.content__add'),
+    //         buttonRemove = document.querySelector('.content__remove'),
+    //         countElem = document.querySelector('.content__count'),
+    //         count = +countElem.textContent;
+    //
+    //     console.log(count);
+    //
+    //     buttonAdd.addEventListener('click', function () {
+    //         setTimeout(function () {
+    //             countElem.textContent = ++count;
+    //         }, 1000);
+    //
+    //     });
+    //
+    //     buttonRemove.addEventListener('click', function () {
+    //         countElem.textContent = --count;
+    //     });
+    //
+    // };
+
+    (function ($) {
+        let count =  +$('.content__count').text();
+
+        // console.dir(typeof count);
+
+        $('.content__add').on('click', function () {
+            setTimeout(function () {
+                $('.content__count').text(++count);
+            }, 1000);
+        });
+
+        $('.content__remove').on('click', function () {
+            $('.content__count').text(--count);
+        });
+    })(jQuery);
+</script>
+</body>
+</html>

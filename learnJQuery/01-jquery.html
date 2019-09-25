@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <h1>Заголовок один</h1>
+
+    <h2 class="bar">Первый</h2>
+
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad assumenda aut consequatur cum cupiditate enim id provident quis! Aspernatur deserunt doloremque incidunt nisi quis, quos ratione sed tempore vero voluptatibus.</p>
+
+    <h2>Второй</h2>
+
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad assumenda aut consequatur cum cupiditate enim id provident quis! Aspernatur deserunt doloremque incidunt nisi quis, quos ratione sed tempore vero voluptatibus.</p>
+
+    <h2>Третий</h2>
+
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad assumenda aut consequatur cum cupiditate enim id provident quis! Aspernatur deserunt doloremque incidunt nisi quis, quos ratione sed tempore vero voluptatibus.</p>
+
+    <h2 class="bar">Четвертый</h2>
+
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad assumenda aut consequatur cum cupiditate enim id provident quis! Aspernatur deserunt doloremque incidunt nisi quis, quos ratione sed tempore vero voluptatibus.</p>
+
+    <style>
+        .green {
+            color: green;
+        }
+
+        .blue {
+            color: blue;
+        }
+    </style>
+
+    <script>
+        ;(function($, undefined){
+            // $('h2').css('color', 'red');
+
+            $('p').addClass('blue');
+
+            $( "h2" ).toggleClass(function() {
+                if ( $( this ).is( ".bar" ) ) {
+                    return "green";
+                } else {
+                    return "blue";
+                }
+            });
+
+        })(jQuery);
+    </script>
+</body>
+</html>

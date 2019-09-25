@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <title>Document</title>
+</head>
+<body>
+
+<section class="content__wrapper">
+    <div class="content__rectangle mt-5"></div>
+
+    <div class="content__buttons">
+        <div class="content__height mt-5">
+            <button class="content__button btn btn-primary h-add">Высота + 1</button>
+            <button class="content__button btn btn-primary h-remove">Высота - 1</button>
+        </div>
+
+        <div class="content__width mt-5">
+            <button class="content__button btn btn-success w-add">Ширина + 1</button>
+            <button class="content__button btn btn-success w-remove">Ширина - 1</button>
+        </div>
+
+        <div class="content__border mt-5">
+            <button class="content__button btn btn-danger b-add">Граница + 1</button>
+            <button class="content__button btn btn-danger b-remove">Граница - 1</button>
+        </div>
+    </div>
+
+</section>
+
+<style>
+    .content__wrapper {
+        height: 100vh;
+        width: 100vw;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+    }
+
+        .content__buttons {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+</style>
+
+<script>
+    window.onload = function() {
+        const contentButtons = document.querySelector('.content__buttons');
+        const rectangle = document.querySelector('.content__rectangle');
+
+        let rectangleWidth = 7,
+            rectangleHeight = 7,
+            rectangleBorder = 1;
+
+        rectangle.style.height = rectangleHeight + 'rem';
+        rectangle.style.width = rectangleWidth + 'rem';
+        rectangle.style.border = rectangleBorder + 'px solid black';
+
+        contentButtons.addEventListener('click', function (event) {
+            console.dir(rectangle);
+
+            if (Array.prototype.includes.call(event.target.classList, 'h-add')) {
+                if (rectangle.style.height.slice(0, -3) < 20) {
+                    rectangle.style.height = ++rectangleHeight + 'rem';
+                }
+            };
+
+            if (Array.prototype.includes.call(event.target.classList, 'h-remove')) {
+                if (rectangle.style.height.slice(0, -3) > 1) {
+                    rectangle.style.height = --rectangleHeight + 'rem';
+                }
+            };
+
+            if (Array.prototype.includes.call(event.target.classList, 'w-add')) {
+                if (rectangle.style.width.slice(0, -3) < 40) {
+                    rectangle.style.width = ++rectangleWidth + 'rem';
+                }
+            };
+
+            if (Array.prototype.includes.call(event.target.classList, 'w-remove')) {
+                if (rectangle.style.width.slice(0, -3) > 1) {
+                    rectangle.style.width = --rectangleWidth + 'rem';
+                }
+            };
+
+            if (Array.prototype.includes.call(event.target.classList, 'b-add')) {
+                if (rectangle.style.border.slice(0, -14) < 10) {
+                    rectangle.style.border = ++rectangleBorder + 'px solid black';
+                }
+            };
+
+            if (Array.prototype.includes.call(event.target.classList, 'b-remove')) {
+                if (rectangle.style.border.slice(0, -14) > 1) {
+                    rectangle.style.border = --rectangleBorder + 'px solid black';
+                }
+            };
+        });
+    };
+</script>
+</body>
+</html>

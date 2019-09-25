@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <title>Document</title>
+</head>
+<body>
+<h1 class="blue">1</h1>
+
+<h1 class="blue">1</h1>
+
+<button id="btn">+1</button>
+
+<style>
+
+    body {
+        padding: 200px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    h1 {
+        margin-right: 100px;
+    }
+
+    .red {
+        color: red;
+    }
+
+    .blue {
+        color: blue;
+    }
+</style>
+
+<script>
+    (function($, undefined){
+        let $h1 = $('h1'),
+            $btn = $('#btn');
+
+        $btn.click(function() {
+            console.log($($h1[0]).text());
+
+            let count = + $($h1[0]).text();
+            ++count;
+            $h1.text(count + '');
+
+            if (count % 2) {
+                $h1.toggleClass('blue');
+                $h1.toggleClass('red');
+            } else {
+                $h1.toggleClass('red');
+                $h1.toggleClass('blue');
+            }
+        });
+
+    })(jQuery);
+</script>
+</body>
+</html>

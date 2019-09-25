@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <section class = "content__wrapper">
+        <div class = "content__square"></div>
+    </section>
+
+    <style>
+        .content__wrapper {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+            .content__square {
+                width: 50vh;
+                height: 50vh;
+                background-color: blue;
+            }
+
+        .invisible {
+            opacity: 0;
+        }
+    </style>
+
+    <script>
+        function delay(ms) {
+            return new Promise(function(resolve, reject) {
+                setTimeout(function() {
+                    resolve();
+                }, ms);
+            });
+        }
+
+
+        let square = document.querySelector('.content__square');
+
+        square.addEventListener('click', async function() {
+           square.classList.add('invisible');
+
+            await delay(1000);
+            square.classList.remove('invisible');
+
+            // delay(1000).then(() => {
+            //     square.classList.remove('invisible');
+            // });
+
+        });
+    </script>
+</body>
+</html>

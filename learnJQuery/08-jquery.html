@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <title>Document</title>
+</head>
+<body>
+    <section class="content__wrapper">
+        <button type="button" class="btn btn-primary mt-5 mb-5 content__create">Set new post</button>
+        <div class="content__posts">
+        </div>
+    </section>
+
+    <style>
+        .content__wrapper {
+            height: 100vh;
+            width: 100vw;
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+        }
+    </style>
+
+    <script>
+        window.onload = function () {
+            let count = 1;
+
+            document.querySelector('.content__create').addEventListener('click', function () {
+                let temp = `
+                    <div class="card text-center mt-1 mb-1">
+                        <div class="card-body">
+                            <h5 class="card-title">Special title treatment ${count++} </h5>
+                            <button type="button" class="btn btn-danger content__delete">X</button>
+                        </div>
+                    </div>
+                `;
+
+                document.querySelector('.content__posts').insertAdjacentHTML('beforeBegin', temp);
+            });
+
+            document.querySelector('.content__wrapper').addEventListener('click', function (event) {
+              // if (event.target.classList.value === 'btn btn-danger content__delete') {
+
+              //TODO : использовать метод строки для определения индекса вхождения подстроки
+
+              console.dir(event.target);
+
+                if (Array.prototype.includes.call(event.target.classList, 'content__delete')) {
+                    event.target.parentNode.parentNode.remove();
+                }
+            });
+        };
+    </script>
+</body>
+</html>
+
