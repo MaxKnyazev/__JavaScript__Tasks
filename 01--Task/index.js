@@ -1,1 +1,5 @@
 //Started...
+
+windiw.onload = function() {
+
+}
