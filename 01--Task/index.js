@@ -1,5 +1,6 @@
 //Started...
 
-windiw.onload = function() {
+window.onload = function() {
 
-}
+
+};
