@@ -1,58 +1,70 @@
-const MS = 1000;
-// let result = '';
 console.log('Started...');
 
-// console.log('ОДИН');
-// console.log('ДВА');
-// console.log('ТРИ');
 
-//----------------------------------------------
-// setTimeout(function() {
-//     result = result + 'ОДИН' + ' | ';
-//     console.log(result);
+let btnCircle = document.querySelector('.content__btnCircle');
+let btnSquare = document.querySelector('.content__btnSquare');
+let contentArea = document.querySelector('.content__area');
 
-//     setTimeout(function() {
-//         result = result + 'ДВА' + ' | ';
-//         console.log(result);
+function Rectangle (width, height, bgc) {
+    this.width = width;
+    this.height = height;
+    this.bgc = bgc;
+};
 
-//         setTimeout(function() {
-//             result = result + 'ТРИ' + ' | ';
-//             console.log(result);
-//         }, MS);
+function Circle (width, height, bgc, borRad) {
+    Rectangle.call(this, width, height, bgc);
+    this.borRad = borRad;
+}
 
-//     }, MS);
+Circle.prototype = Object.create(Rectangle.prototype);
+Circle.prototype.constructor = Circle;
 
-// }, MS);
+Rectangle.prototype.render = function () {
+    let elem = document.createElement('div');
+    elem.style.width = this.width + 'rem';
+    elem.style.height = this.height + 'rem';
+    elem.style.backgroundColor = this.bgc;
 
-//------------------------------------------------
-// const writeNumber = (result = '', word) => 
-//     new Promise((resolve, reject) =>
-//     setTimeout(() => resolve(`${result}${word} | `), MS));
+    if (this.borRad) {
+        elem.style.borderRadius = this.borRad + '%';
+    }
 
-// writeNumber('', 'ОДИН')
-//     .then(res => {
-//         console.log(res);
-//         return writeNumber(res, 'ДВА')
-//     })
-//     .then(res => {
-//         console.log(res);
-//         return writeNumber(res, 'ТРИ')
-//     })
-//     .then(res => {
-//         console.log(res);
-//     })
-//     .catch(error => console.error(error));
+    contentArea.append(elem);
+};
 
-//------------------------------------------------
-const writeNumber = (result = '', word) => 
-    new Promise((resolve, reject) =>
-    setTimeout(() => resolve(`${result}${word} | `), MS));
+btnSquare.addEventListener('click', function () {
+    let square = new Rectangle(4, 4, 'blue');
+    square.render();
+});
 
-(async function(){
-    let res = await writeNumber('', 'ОДИН');
-    console.log(res);
-    res = await writeNumber(res, 'ДВА');
-    console.log(res);
-    res = await writeNumber(res, 'ТРИ');
-    console.log(res);
-})();
+btnCircle.addEventListener('click', function () {
+    let circle = new Circle(8, 8, 'red', 50);
+    circle.render();
+});
+
+
+
+
+
+/*
+
+btnCircle.addEventListener('click', function () {
+    let circle = document.createElement('div');
+    circle.style.width = '7rem';
+    circle.style.height = '7rem';
+    circle.style.backgroundColor = 'red';
+    circle.style.borderRadius = '50%';
+
+    contentArea.append(circle);
+});
+
+
+btnSquare.addEventListener('click', function () {
+    let square = document.createElement('div');
+    square.style.width = '7rem';
+    square.style.height = '7rem';
+    square.style.backgroundColor = 'blue';
+
+    contentArea.append(square);
+});
+*/

@@ -4,10 +4,56 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
     <title>000</title>
 </head>
 <body>
+
+<section class="content__wrapper">
+    <div class="content__area">
+<!--        <div class="content__square"></div>-->
+
+<!--        <div class="content__circle"></div>-->
+    </div>
+
+    <div class="content__buttons">
+        <button type="button" class="btn btn-outline-primary content__btnCircle">Добавить круг</button>
+
+        <button type="button" class="btn btn-outline-secondary content__btnSquare">Добавить квадрат</button>
+    </div>
+
+</section>
+
+<style>
+    .content__wrapper {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        width: 100vw;
+        flex-direction: column;
+    }
+
+    .content__area {
+        border: 3px solid gray;
+        width: 80vw;
+        height: 60vh;
+        margin-top: 5vh;
+    }
+
+    .content__buttons {
+        margin-top: 5vh;
+    }
+
+    .content__area {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-around;
+    }
+
+</style>
     
 <script src="000.js"></script>
 </body>
