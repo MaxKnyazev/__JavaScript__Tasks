@@ -1,10 +1,100 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>$Title$</title>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <title>Document</title>
 </head>
 <body>
-$END$
+<section class="wrapper" id="app">
+    <div class="squares mr-3">
+
+    </div>
+
+    <div class="buttons">
+        <button id="start" type="button" class="btn btn-primary">Start</button>
+    </div>
+</section>
+
+
+<style>
+    .wrapper {
+        display: flex;
+        flex-wrap: wrap;
+        width: 100vw;
+        height: 100vh;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .squares {
+        border: 1px solid gray;
+        width: 50vw;
+        height: 50vh;
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .square {
+        background-color: red;
+        margin: 1rem;
+    }
+</style>
+
+<script>
+  window.onload = function () {
+    function Init () {
+      this.app = document.querySelector('#app');
+      this.container = app.querySelector('.squares');
+      this.start = app.querySelector('#start');
+    }
+
+    Init.prototype.render = function (temp) {
+      this.container.appendChild(temp)
+    };
+
+    let init = new Init ();
+
+    function Square (side) {
+      this.side = side;
+    }
+
+    Square.prototype.createTemp = function () {
+      let temp = document.createElement('div');
+      temp.className = 'square';
+      temp.style.width = `${this.side}rem`;
+      temp.style.height = `${this.side}rem`;
+      return temp;
+    };
+
+    function Circle (side, radius) {
+      Square.call(this, side);
+      this.radius = radius;
+    }
+
+    Circle.prototype = Object.create(Square.prototype);
+    Circle.prototype.constructor = Circle;
+
+    Circle.prototype.createTemp = function () {
+      let temp = document.createElement('div');
+      temp.className = 'square';
+      temp.style.width = `${this.side}rem`;
+      temp.style.height = `${this.side}rem`;
+      temp.style.borderRadius = `${this.radius}%`;
+      return temp;
+    };
+
+    init.start.addEventListener('click', function (event) {
+      if (Date.now() % 2 === 0) {
+        init.render(new Square(5).createTemp());
+      } else {
+        init.render(new Circle(5, 50).createTemp());
+      }
+    })
+  }
+</script>
 </body>
 </html>
