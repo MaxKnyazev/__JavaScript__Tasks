@@ -41,24 +41,33 @@
             .clock--element {
                 width: 100px;
                 height: 120px;
-                background-color: #575757;
+                /*background-color: #575757;*/
+                box-sizing: border-box;
+                opacity: 0.1;
             }
 
             .clock--first {
+                transform: rotate(90deg);
+                border-top: 10px solid #00ff00;
+                border-bottom: 10px solid #00ff00;
             }
 
             .clock--second {
-                transform: rotate(90deg);
                 margin-top: -120px;
+                border-top: 10px solid #00ff00;
+                border-bottom: 10px solid #00ff00;
             }
 
             .clock--third {
+                transform: rotate(90deg);
                 margin-top: -10px;
+                border-top: 10px solid #00ff00;
+                border-bottom: 10px solid #00ff00;
             }
 
             .clock--fourth {
-                transform: rotate(90deg);
                 margin-top: -120px;
+                border-bottom: 10px solid #00ff00;
             }
     </style>
 <script src = "clock.js"></script>
