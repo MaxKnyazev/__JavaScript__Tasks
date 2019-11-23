@@ -1,0 +1,85 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+    background-color: #d1d1d1;
+}
+
+    .game__wrapper {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 80vh;
+        width: 80vw;
+        flex-direction: column;
+        background-color: #eee;
+        border: 3px solid #a0a0a0;
+        border-radius: 10px;
+    }
+
+        .game__buttons {
+            width: 100%;
+            text-align: center;
+            margin-bottom: 0.5rem;
+        }
+
+            .game__button {
+                width: 20%;
+                padding: 1.5rem;
+                background-color: orange;
+                border: 3px solid #bf6c00;
+                border-radius: 10px;
+                font-size: 30px;
+                font-weight: bold;
+                color: #353535;
+            }
+            
+            .game__add {
+                /*background-color: #a0a0a0;*/
+            }
+
+            .game__button--disable {
+                background-color: #a0a0a0;
+                border-color: #747474;
+            }
+
+        .game__display {
+            display: flex;
+            justify-content: space-around;
+            width: 100%;
+            /*background-color: yellow;*/
+            height: 100%;
+            margin-top: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+            .game__main {
+                display: flex;
+                flex-direction: column;
+                justify-content: space-around;
+                align-items: center;
+                /*background-color: red;*/
+                width: 30%;
+                height: 100%;
+            }
+
+            .game__figure {
+                width: 10rem;
+                height: 10rem;
+                background-color: blue;
+                margin-top: 0.5rem;
+                margin-bottom: 0.5rem;
+            }
+
+            .game-score__item {
+                font-size: 50px;
+                font-weight: bold;
+            }
