@@ -1,32 +1,11 @@
-//Started...
+﻿//Started...
 window.onload = function() {
     console.log('Started...');
 
-    function isNumber(value) {
-        return (value instanceof Number||typeof value === 'number') && !isNaN(value);
-      }
 
     function controlPassportSeries() {
         let passportSeries = 1000;
-        return function() {
-            return Object.freeze({
-                getSeries() {
-                    return passportSeries;
-                },
-                setSeries(value) {
-                    if (!isNumber(value)) {
-                      throw Error(`Ожидалось число.`);
-                    }
-
-                    if (value < 1000 ||value > 9999) {
-                        throw Error(`Значение должно быть в диапазоне 1000 - 9999.`);
-                    }
-
-                    passportSeries = value;
-
-                }
-            })
-        }
+        
 
     }
 
