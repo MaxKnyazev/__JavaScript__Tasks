@@ -5,9 +5,57 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>02--Task</title>
+    <title>03--Task</title>
 </head>
 <body>
+    <section class="wrapper">
+        <button class="content content__button content__minus"> - </button>
+
+        <div class="content content__number"> 1 </div>
+
+        <button class="content content__button content__plus"> + </button>
+    </section>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .wrapper {
+            width: 100vw;
+            height: 100vh;
+
+            display: flex;
+            flex-direction: column;
+            justify-content: space-evenly;
+            align-items: center;
+        }
+
+            .content {
+                box-sizing: border-box;
+
+                height: 20vh;
+                width: 20vh;
+                border: 10px solid #000;
+
+                font-weight: bold;
+
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+                .content__button {
+                    font-size: 120px;
+                    background-color: #ffb600;
+                }
+
+                .content__number {
+                    font-size: 100px;
+                    background-color: #e0e0e0;
+                }
+    </style>
 
     <script src="index.js"></script>
 </body>
