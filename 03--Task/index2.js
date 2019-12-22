@@ -10,7 +10,7 @@ window.onload = function() {
         this.height = size + 'vmin';
       }
 
-      setParametrs (elem) {
+      letParametrs (elem) {
         elem.className = this.classNames;
         elem.innerText = this.content;
         elem.style.width = this.width;
@@ -29,7 +29,7 @@ window.onload = function() {
 
       render () {
         let elem = document.createElement(this.tag);
-        this.setParametrs(elem);
+        this.letParametrs(elem);
         wrapper.append(elem);
       }
     }
@@ -45,7 +45,7 @@ window.onload = function() {
 
       render () {
         let elem = document.createElement(this.tag);
-        this.setParametrs(elem);
+        this.letParametrs(elem);
         this.content === '+' ?
           elem.addEventListener('click', this.add):
           elem.addEventListener('click', this.sub);

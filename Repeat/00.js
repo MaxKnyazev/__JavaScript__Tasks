@@ -78,7 +78,7 @@ console.log('Started...');
 
 
 //----------------------------------------------------------------
-
+//
 // const writeNumbers = result =>
 //   new Promise( resolve =>{
 //     setTimeout( () => {
@@ -94,4 +94,5 @@ console.log('Started...');
 //   await writeNumbers(++result);
 //   await writeNumbers(++result);
 // })();
+//----------------------------------------------------------------
 
