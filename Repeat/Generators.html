@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Generators</title>
+</head>
+<body>
+<script>
+  function* myGenerator ({start, stop}) {
+    while (start <= stop) {
+      yield start;
+      start += 1;
+    }
+  }
+
+  let obj = {
+    start : 1,
+    stop : 7,
+  };
+
+  const iterator = myGenerator(obj);
+  console.log(iterator);
+  console.log(iterator.next());
+  console.log(iterator.next());
+  console.log(iterator.next());
+  console.log(iterator.next());
+  console.log(iterator.next());
+  console.log(iterator.next());
+  console.log(iterator.next());
+  console.log(iterator.next());
+
+  for (let elem of myGenerator(obj)) {
+    console.log(elem);
+  }
+
+  // let obj = {
+  //   start : 1,
+  //   stop : 7,
+  //
+  //   [Symbol.iterator] () {
+  //     let nextValue = this.start - 1;
+  //     let stop = this.stop;
+  //     return {
+  //       next () {
+  //         if (nextValue < stop) {
+  //           nextValue += 1;
+  //           return {
+  //             value : nextValue,
+  //             done : false
+  //           }
+  //         } else {
+  //           return {
+  //             value : undefined,
+  //             done : true
+  //           }
+  //         }
+  //       }
+  //     }
+  //   }
+  //
+  // };
+  //
+  // let iter = obj[Symbol.iterator]();
+  // console.log(iter);
+  // console.log(iter.next());
+  // console.log(iter.next());
+  // console.log(iter.next());
+  // console.log(iter.next());
+  // console.log(iter.next());
+  // console.log(iter.next());
+  // console.log(iter.next());
+  //
+  // for (let elem of obj) {
+  //   console.log(elem);
+  // }
+  //
+  // console.log([...obj]);
+</script>
+</body>
+</html>

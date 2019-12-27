@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Distruct</title>
+</head>
+<body>
+
+<script>
+
+  let obj = {
+    name : 'Ivan',
+    surname : 'Petrov',
+    ser : '2014',
+    num : '112233',
+    border : {
+      n1 : '1px',
+      n2 : 'solid',
+      n3 : 'red'
+    }
+  };
+
+  let {name : n = 'User', surname} = obj;
+  let {ser, num} = obj;
+
+  function passport ({ser = '0000', num = '000000'}) {
+    console.log(`${ser} ${num}`)
+  }
+  passport(obj);
+
+  function borderFn ({border}) {
+    console.log(`${n1} ${n2} ${n3}`)
+  }
+  borderFn(obj);
+
+  // console.log(n);
+  // console.log(surname);
+
+  // let arr = ['Ivan', 'Petrov', '2014', '112233', ['1px', 'solid', 'red']];
+  //
+  // function fullName ([name, surname]) {
+  //   console.log(`${name} ${surname}`);
+  // }
+  //
+  // fullName(arr);
+  // let [name, surname] = arr;
+  // let [, , ser, num] = arr;
+  // let [, , , , border] = arr;
+  // let [, , , , [n1, n2, n3]] = arr;
+  //
+  // console.log(`${n1}   ${n2}   ${n3}`);
+</script>
+
+</body>
+</html>
