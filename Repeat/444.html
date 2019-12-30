@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>444</title>
+</head>
+<body>
+  <script>
+    function fn (...params) {
+      console.log(params);
+      function fn2 ([...params]) {
+        console.log(params)
+      }
+      fn2(params);
+    }
+
+    fn(1, 2, {done : true}, [4], 5);
+  </script>
+</body>
+</html>

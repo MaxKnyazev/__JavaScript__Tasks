@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Event loop</title>
+</head>
+<body>
+  <script>
+    console.log('Основной поток 1');
+    
+    setTimeout(function () {
+      console.log('Task 1')
+    }, 1000);
+
+    function microTask1 () {
+      return new Promise(function (resolve, reject) {
+        resolve();
+      }).then(function () {
+        console.log('MicroTask 1')
+      })
+    }
+    microTask1();
+
+    // ----------------------------
+
+    setTimeout(function () {
+      console.log('Task 2')
+    }, 0);
+
+    function microTask2 () {
+      return new Promise(function (resolve, reject) {
+        resolve();
+      }).then(function () {
+        console.log('MicroTask 2')
+      })
+    }
+    microTask2();
+
+    // ----------------------------  
+
+    setTimeout(function () {
+      console.log('Task 3')
+
+      function microTask3 () {
+        return new Promise(function (resolve, reject) {
+          resolve();
+        }).then(function () {
+          console.log('MicroTask 3')
+        })
+      }
+      microTask3();
+
+      function microTask4 () {
+        return new Promise(function (resolve, reject) {
+          resolve();
+        }).then(function () {
+          console.log('MicroTask 4')
+        })
+      }
+      microTask4();
+    }, 0);
+
+
+
+    console.log('Основной поток 2');
+  </script>
+</body>
+</html>

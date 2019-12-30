@@ -79,20 +79,20 @@
 
 // **********************************************
 
-let user = {
-  age : 20,
-  color : 'green'
-};
+// let user = {
+//   age : 20,
+//   color : 'green'
+// };
 
-function CreateObjects ({age, color}) {
-  return Object.freeze({
-    age,
-    color
-  })
-}
+// function CreateObjects ({age, color}) {
+//   return Object.freeze({
+//     age,
+//     color
+//   })
+// }
 
-let obj = CreateObjects(user);
-console.dir(obj);
+// let obj = CreateObjects(user);
+// console.dir(obj);
 
 // obj.age = 21;
 //

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Iterator--str</title>
+</head>
+<body>
+  <script>
+    const obj = {
+      text: 'один два три четыре пять',
+      
+      [Symbol.iterator] () {
+        let start = 0;
+        let end = 0;
+        let result = '';
+        let text = this.text + ' ';
+
+        return {
+          next () {
+            end = text.indexOf(' ', start);
+            // console.log(`start : ${start} //// end : ${end} //// result : ${result}`)
+            
+            if (end !== -1) {
+              result = text.slice(start, end);
+              start = end + 1;
+          
+              return {
+                done : false,
+                value : result
+              }
+            } else {
+              return {
+                done : true,
+                value : undefined 
+              }
+            }
+          }
+        }
+      }
+    }  
+
+    let iterator = obj[Symbol.iterator]();
+    console.log(iterator.next());
+    console.log(iterator.next());
+    console.log(iterator.next());
+    console.log(iterator.next());
+    console.log(iterator.next());
+    console.log(iterator.next());
+    console.log(iterator.next());
+    console.log(iterator.next());
+    console.log(iterator.next());
+
+    for (let word of obj) {
+      console.log(word);
+    }
+
+    console.log([...obj])
+  </script>
+</body>
+</html>
