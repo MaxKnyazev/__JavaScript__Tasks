@@ -1,0 +1,9 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+  .counter {
+    font-size : 100px;
+    margin: 50px;
+  }
