@@ -1,0 +1,8 @@
+.app__button {
+  border: 10px solid rgb(34, 34, 34);
+  background-color: orange;
+  width: 10vw;
+  height: 10vw;
+  font-size: 10vw;
+  color: rgb(34, 34, 34);
+}
