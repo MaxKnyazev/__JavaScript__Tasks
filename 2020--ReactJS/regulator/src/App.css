@@ -1,6 +1,7 @@
 .app {
   display: flex;
-  flex-direction: row;
+  /* flex-direction: row; */
+  flex-wrap: wrap;
   height: 100vh;
   background-color: rgb(194, 194, 194);
   justify-content: center;
