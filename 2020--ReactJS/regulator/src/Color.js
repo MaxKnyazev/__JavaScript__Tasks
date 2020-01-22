@@ -1,9 +1,9 @@
 import React from 'react';
 import './Color.css';
 
-const Color = ({count}) => {
+const Color = ({count, color}) => {
   return (
-    <div className = 'app__color'>
+    <div style = {{backgroundColor : color}} className = 'app__color'>
       {count}
     </div>
   )
