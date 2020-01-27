@@ -14,6 +14,10 @@ class TodoList extends Component {
       items: []
     };
   }
+
+  componentDidMount() {
+    this.refInput.current.focus();
+  }
   
   addItem(e) {
     let itemArray = this.state.items;
@@ -41,6 +45,8 @@ class TodoList extends Component {
     this.setState({
       items: filteredItems
     });
+
+    this.refInput.current.focus();
   }  
 
   render() {
