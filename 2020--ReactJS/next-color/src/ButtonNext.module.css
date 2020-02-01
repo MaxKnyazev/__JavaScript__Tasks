@@ -1,0 +1,10 @@
+.ButtonNext {
+  padding: 2vw;
+  font-size: 50px;
+  transition: color 200ms linear, background-color 200ms linear;
+}
+
+  .ButtonNext:hover {
+    color: #fff;
+    background-color: orange;
+  }
