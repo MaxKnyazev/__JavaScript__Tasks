@@ -13,75 +13,115 @@ class App extends PureComponent {
     }
   }
 
-  static step = 10;
+  options = {
+    MIN : 0,
+    MAX : 100,
+    STEP : 10
+  }
+
+  options_H = {
+    MAX : 360,
+  }
 
   addH = () => {
-    this.setState(prevState => prevState.h === 350 ? { h : 0 } : { h : prevState.h + App.step });
+    this.setState(prevState => 
+      prevState.h === this.options_H.MAX - this.options.STEP 
+      ? { h : 0 } 
+      : { h : prevState.h + this.options.STEP });
   }
 
   subH = () => {
-    this.setState(prevState => prevState.h === 0 ? { h : 350 } : { h : prevState.h - App.step });  
+    this.setState(prevState => 
+      prevState.h === 0 
+      ? { h : this.options_H.MAX - this.options.STEP } 
+      : { h : prevState.h - this.options.STEP });  
   }
 
-  addS = () => {
-    if (this.state.s < 100) {
+  // addS = () => {
+  //   if (this.state.s < 100) {
+  //     this.setState({
+  //       s : this.state.s + App.STEP,
+  //     }); 
+  //   }  
+  // }
+
+  addSL = (part) => {
+    if (this.state[part] < this.options.MAX) {
       this.setState({
-        s : this.state.s + App.step,
+        [part] : +this.state[part] + +this.options.STEP,
       }); 
     }  
   }
 
-  subS = () => {
-    if (this.state.s > 0) {
+  subSL = (part) => {
+    if (this.state[part] > this.options.MIN) {
       this.setState({
-        s : this.state.s - App.step,
+        [part] : this.state[part] - this.options.STEP,
       });
     }  
   }
 
-  addL = () => {
-    if (this.state.l < 100) {
+  // subS = () => {
+  //   if (this.state.s > 0) {
+  //     this.setState({
+  //       s : this.state.s - App.STEP,
+  //     });
+  //   }  
+  // }
+
+  // addL = () => {
+  //   if (this.state.l < 100) {
+  //     this.setState({
+  //       l : this.state.l + App.STEP,
+  //     }); 
+  //   }    
+  // }
+
+  // subL = () => {
+  //   if (this.state.l > 0) {
+  //     this.setState({
+  //       l : this.state.l - App.STEP,
+  //     });
+  //   }    
+  // }
+
+  changeRangeS = (event) => {
       this.setState({
-        l : this.state.l + App.step,
-      }); 
-    }    
+        s : event.target.value
+    })  
   }
 
-  subL = () => {
-    if (this.state.l > 0) {
-      this.setState({
-        l : this.state.l - App.step,
-      });
-    }    
-  }
-// title = 'H' value = {h} addValue = {this.addH} subValue = {this.subH}
   render() { 
-    const {h, s, l} = this.state;
+    const { h, s, l } = this.state;
 
     const argsH = {
-      title : 'H',
+      partColor : 'h',
       value : h, 
       addValue : this.addH,
       subValue : this.subH
     }
 
     const argsS = {
-      title : 'S',
+      partColor : 's',
       value : s, 
-      addValue : this.addS,
-      subValue : this.subS
+      addValue : this.addSL.bind(null, 's'),
+      subValue : this.subSL.bind(null, 's')
     }
 
     const argsL = {
-      title : 'L',
+      partColor : 'l',
       value : l, 
-      addValue : this.addL,
-      subValue : this.subL
+      addValue : this.addSL.bind(null, 'l'),
+      subValue : this.subSL.bind(null, 'l')
     }
 
     return ( 
       <div className = 'App'>
-        <div className = 'App__square' style = {{ backgroundColor : `hsl(${h}, ${s}%, ${l}%)` }}></div>
+        <div 
+          className = 'App__square' 
+          style = {{ backgroundColor : `hsl(${h}, ${s}%, ${l}%)` }}>
+        </div>
+
         <nav>
           <ul className = 'App__list'>
             <li><NavLink className = 'App__link' to = '/h'>H</NavLink></li>
@@ -89,9 +129,30 @@ class App extends PureComponent {
             <li><NavLink className = 'App__link' to = '/l'>L</NavLink></li>
           </ul>
         </nav>
-        <Route path = '/h' render = {() => <ColorSetting {...argsH}/>} />
-        <Route path = '/s' render = {() => <ColorSetting {...argsS} />} />
-        <Route path = '/l' render = {() => <ColorSetting {...argsL} />} />
+
+        <Route 
+          path = '/h' 
+          render = {() => <ColorSetting 
+            {...argsH} 
+            {...this.options} 
+            {...this.options_H} 
+          />} 
+        />
+        <Route 
+          path = '/s' 
+          render = {() => <ColorSetting 
+            {...argsS} 
+            {...this.options}
+            changeRange={this.changeRangeS}
+          />} 
+        />
+        <Route 
+          path = '/l' 
+          render = {() => <ColorSetting 
+            {...argsL} 
+            {...this.options}
+          />} 
+        />
       </div>
      );
   }
