@@ -14,17 +14,14 @@ const ColorSetting = (props) => {
           className = 'Setting__button' 
           onClick = {props.subValue}
         >-</button>
-        
         <span 
           className = 'Setting__value'
         >{props.value}
         </span>
-
         <button 
           className = 'Setting__button' 
           onClick = {props.addValue}
         >+</button>
-        
       </div>
 
       <ColorRange {...props}/>

@@ -1,26 +1,22 @@
 .Setting__wrapper {
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
   flex-direction: column;
   align-items: center;  
 
   margin-top: 3vh;
-  width: 100%;
 }
 
   .Setting__buttons__wrapper {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
-
-    margin-bottom: 3vh;
-    width: 100%;
   }
 
     .Setting__button {
       background-color: #fff;
       border: none;
-      padding: 1vmin 3vmin;
+      padding: 5px 30px;
 
       font-size: 50px;
       color: rgb(73, 0, 107);
@@ -30,12 +26,15 @@
 
     .Setting__button:hover {
       background-color: rgb(175, 89, 255);
+
+      /* padding: 10px 40px; */
       color: #fff;
+
       border-radius: 10px;
     }
 
     .Setting__value {
       margin: 0 3vw;
-      min-width: 5vmax;
+      min-width: 100px;
       text-align: center;
     }

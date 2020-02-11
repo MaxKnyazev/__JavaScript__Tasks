@@ -13,7 +13,7 @@ const ColorRange = (props) => {
       min={MIN} 
       max={MAX} 
       step={STEP}
-      value={value}
+      defaultValue={value}
       onChange={props.changeRange}
     />
   )

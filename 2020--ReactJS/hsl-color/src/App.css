@@ -1,27 +1,19 @@
 .App {
   display: flex;
   justify-content: center;
-  /* align-items: center; */
-
+  align-items: center;
+  flex-direction: column;
+  
   height: 100vh;
 
   font-size: 40px;
   color: #fff;
-  background-color: rgb(73, 0, 107);
+  background-color: rgb(73, 0, 107); 
 }
 
-  .App__wrapper {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    flex-direction: column;
-
-    width: 20vw;
-  }
-
   .App__square {
-    width: 20vw;
-    height: 20vw;
+    width: 40vh;
+    height: 40vh;
     
     background-color: #fff;
     border: 3px solid #fff;
@@ -36,49 +28,43 @@
       border-radius: 20px;
     }
 
-  .App__nav {
-    width: 100%;
+  .App__list {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    list-style-type: none;
+
+    margin-top: 5vh;
   }
 
-    .App__list {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      list-style-type: none;
+    .App__link {
+      color: #fff;
+      text-decoration: none;
+      border: 3px solid #fff;
 
-      margin-top: 5vh;
+      margin: 1vw;
+      padding: 10px 30px;
+
+      transition: all 250ms linear;
     }
 
-      .App__link {
-        color: #fff;
-        text-decoration: none;
-        border: 3px solid #fff;
+    .App__link:hover {
+      background-color: #fff;
+      color: rgb(73, 0, 107); 
 
-        padding: 2vmin 3vmin;
+      border-radius: 10px;
+    }
 
-        transition: all 250ms linear;
-      }
+    .App__link.active {
+      background-color: rgb(175, 89, 255);
+      border: 3px solid rgb(175, 89, 255);
 
-      .App__link:hover {
-        background-color: #fff;
-        color: rgb(73, 0, 107); 
+    }
 
-        border-radius: 10px;
-      }
+    .App__link.active:hover {
+      color: #fff;
+      border: 3px solid rgb(175, 89, 255);
 
-      .App__link.active {
-        background-color: rgb(175, 89, 255);
-        border: 3px solid rgb(175, 89, 255);
-
-      }
-
-      .App__link.active:hover {
-        color: #fff;
-        border: 3px solid rgb(175, 89, 255);
-
-        border-radius: 10px;
-        /* border-bottom: 7px solid rgb(184, 5, 255); */
-      }
-
-
-/* -------------------- MEDIA: -------------------- */
+      border-radius: 10px;
+      /* border-bottom: 7px solid rgb(184, 5, 255); */
+    }
