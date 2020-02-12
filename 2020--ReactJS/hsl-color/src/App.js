@@ -65,13 +65,6 @@ class App extends PureComponent {
     })  
   }
 
-  // changeRange = (event, part) => {
-  //   this.setState({
-  //     [part] : event.target.value
-  //   })  
-  // }
-  
-
   render() { 
     const { h, s, l } = this.state;
 

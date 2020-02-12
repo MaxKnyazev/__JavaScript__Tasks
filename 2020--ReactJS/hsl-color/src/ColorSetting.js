@@ -3,8 +3,6 @@ import './ColorSetting.css';
 import ColorRange from './ColorRange';
 
 const ColorSetting = (props) => {
-  // console.log(props);
-
   return ( 
     <div className = 'Setting__wrapper'>
       <h1>{props.partColor.toUpperCase()}</h1>
