@@ -68,26 +68,30 @@ class App extends PureComponent {
   render() { 
     const { h, s, l } = this.state;
 
-    const argsH = {
+    let argsH = {
       partColor : 'h',
       value : h, 
       addValue : this.addH,
       subValue : this.subHSL.bind(null, 'h')
     }
 
-    const argsS = {
+    let argsS = {
       partColor : 's',
       value : s, 
       addValue : this.addSL.bind(null, 's'),
       subValue : this.subHSL.bind(null, 's')
     }
-
-    const argsL = {
+ 
+    let argsL = {
       partColor : 'l',
       value : l, 
       addValue : this.addSL.bind(null, 'l'),
       subValue : this.subHSL.bind(null, 'l')
     }
+
+    argsH = {...argsH, ...this.options, ...this.options_H};
+    argsS = {...argsS, ...this.options};
+    argsL = {...argsL, ...this.options};
 
     return ( 
       <div className = 'App'>
@@ -109,27 +113,26 @@ class App extends PureComponent {
             path = '/h' 
             render = {() => <ColorSetting 
               {...argsH} 
-              {...this.options} 
-              {...this.options_H} 
               changeRange={this.changeRangeH}
             />} 
           />
+
           <Route 
             path = '/s' 
             render = {() => <ColorSetting 
               {...argsS} 
-              {...this.options}
               changeRange={this.changeRangeS}
             />} 
           />
+
           <Route 
             path = '/l' 
             render = {() => <ColorSetting 
               {...argsL} 
-              {...this.options}
               changeRange={this.changeRangeL}
             />} 
           />
+          
         </div>
       </div>
      );

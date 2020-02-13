@@ -16,7 +16,7 @@
     width: 100%;
   }
 
-    .Setting__button {
+    /* .Setting__button {
       transition: all 250ms linear;
       max-width: 130px;
       max-height: 130px;
@@ -46,7 +46,7 @@
 
     .Setting__button:hover svg {
       color: #fff;
-    }
+    } */
 
     .Setting__value {
       font-size: 5vmax;
