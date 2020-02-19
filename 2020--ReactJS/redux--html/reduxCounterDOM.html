@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ReduxCounter</title>
+  <script src="https://unpkg.com/redux@latest/dist/redux.js"></script>
+</head>
+
+<body>
+  <button id="buttonAdd">+</button>
+  <span id="counter">0</span>
+  <button id="buttonSub">-</button>
+
+  <script>
+    let buttonAdd = document.querySelector('#buttonAdd');
+    let buttonSub = document.querySelector('#buttonSub');
+    let counter = document.querySelector('#counter');
+
+    // Actions
+    function addCount() {
+      return {
+        type: 'ADD',
+      };
+    }
+
+    function subCount() {
+      return {
+        type: 'SUB',
+      };
+    }
+
+    // Reducer
+    function reducer(state = {count : 0}, action) {
+      if (action.type === 'ADD') {
+        return { count: state.count + 1 };
+      }
+
+      if (action.type === 'SUB') {
+        return { count: state.count - 1 };
+      }
+        
+      return state;
+    }
+
+    // Store
+    let store = Redux.createStore(reducer);
+
+    store.subscribe(() => console.log(store.getState().count));
+
+    buttonAdd.addEventListener('click', () => {
+      store.dispatch(addCount());
+      counter.innerHTML = store.getState().count;
+    })
+
+    buttonSub.addEventListener('click', () => {
+      store.dispatch(subCount());
+      counter.innerHTML = store.getState().count;
+    })
+  </script>
+</body>
+</html>

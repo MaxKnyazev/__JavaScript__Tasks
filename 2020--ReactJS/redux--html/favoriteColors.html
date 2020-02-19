@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Favorite Colors</title>
+  <script src="https://unpkg.com/redux@latest/dist/redux.js"></script>
+</head>
+<body>
+  <script>
+    // Actions
+    function addColor(value) {
+      return {
+        type: "ADD",
+        color: value
+      };
+    }
+
+    function removeColor(value) {
+      return {
+        type: "REMOVE",
+        color: value
+      };
+    }
+
+    // Reducer
+    function reducer(state = [], action) {
+      if (action.type === "ADD") {
+        return state.concat(action.color);
+      }
+
+      if (action.type === "REMOVE") {
+        return state.filter(item => item !== action.color)
+      }
+        
+      return state;
+    }
+
+    // Store
+    let store = Redux.createStore(reducer);
+
+    store.subscribe(() => console.log(store.getState()));
+
+    store.dispatch(addColor("blue"));
+    store.dispatch(addColor("yellow"));
+    store.dispatch(addColor("green"));
+    store.dispatch(addColor("red"));
+    store.dispatch(addColor("gray"));
+    store.dispatch(addColor("orange"));
+    store.dispatch(removeColor("gray"));
+  </script>
+</body>
+</html>
