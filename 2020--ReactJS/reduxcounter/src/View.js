@@ -1,5 +1,6 @@
 import React from "react";
 import {connect} from "react-redux";
+import Resizer from './Resizer';
 
 function View (props) {
   return (
@@ -7,6 +8,8 @@ function View (props) {
       <button onClick = {props.addColorR}>{props.R}</button>
       <button onClick = {props.addColorG}>{props.G}</button>
       <button onClick = {props.addColorB}>{props.B}</button>
+
+      <Resizer />
     </div>
   )
 }

@@ -1,6 +1,6 @@
 import React from "react";
 import Counter from "./Counter";
-import View from './View'
+import View from './View';
                      
 const App = () => { 
   return (

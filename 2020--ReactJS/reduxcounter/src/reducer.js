@@ -3,6 +3,8 @@ let initialState = {
   R : 0,
   G : 0,
   B : 0,
+  W : 100,
+  H : 100,
 };
 
 function reducer(state = initialState, action) {
@@ -22,6 +24,13 @@ function reducer(state = initialState, action) {
 
     case "addB":
       return {...state, B: state.B + action.value};
+
+    case "addW":
+      return {...state, W: state.W + action.value};
+
+    case "addH":
+      return {...state, H: state.H + action.value};
+
     default:
       return state;
   }
