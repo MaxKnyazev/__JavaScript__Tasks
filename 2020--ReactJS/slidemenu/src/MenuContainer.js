@@ -37,7 +37,6 @@ class MenuContainer extends Component {
         />
         }
 
-
         <div>
           <p>Лишний пункт</p>
           <ul>
@@ -50,7 +49,6 @@ class MenuContainer extends Component {
             <li>Consectetur</li>
           </ul>
         </div>
-
       </div>
     );
   }
