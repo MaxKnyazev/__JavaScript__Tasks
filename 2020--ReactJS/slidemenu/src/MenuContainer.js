@@ -3,39 +3,34 @@ import MenuButton from './MenuButton';
 import Menu from './Menu'
 
 class MenuContainer extends Component {
-  constructor(props) {
-    super(props);
+  // constructor(props) {
+    // super(props);
     
-    this.state = {
-      visible: true
-    };
+    // this.state = {
+    //   visible: true
+    // };
 
-    this.toggleMenu = this.toggleMenu.bind(this);
-    this.handleMouseDown = this.handleMouseDown.bind(this);
-  }
+    // this.toggleMenu = this.toggleMenu.bind(this);
+    // this.handleMouseDown = this.handleMouseDown.bind(this);
+  // }
 
-  handleMouseDown(e) {
-    this.toggleMenu();
-    console.log("clicked");
-    e.stopPropagation();
-  }
+  // handleMouseDown(e) {
+  //   this.toggleMenu();
+  //   console.log("clicked");
+  //   e.stopPropagation();
+  // }
 
-  toggleMenu() {
-    this.setState({
-      visible:!this.state.visible
-    });
-  }  
+  // toggleMenu() {
+  //   this.setState({
+  //     visible:!this.state.visible
+  //   });
+  // }  
 
   render() {
     return (
       <div>
-        <MenuButton handleMouseDown={this.handleMouseDown}/>
-        {
-          <Menu 
-          handleMouseDown={this.handleMouseDown}
-          menuVisibility={this.state.visible} 
-        />
-        }
+        <MenuButton/>
+        <Menu />
 
         <div>
           <p>Лишний пункт</p>
