@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>005-test</title>
+</head>
+<body>
+  <h1>005-test : rest/spread</h1>
+
+<script>
+console.log('------------------Started script...');
+
+// rest -> spread
+function fn(...args) {
+  console.log(...args);
+}
+
+fn(1, 'a', [], {})
+ 
+// ===================
+
+// spread -> rest 
+const arr = [1, 'a', [], {}];
+
+function fn2(...args) {
+  console.log(...args);
+}
+
+fn(arr)
+
+// ===================
+
+let obj = {
+  name : 'Max',
+  _age : 16,
+  
+  get age () {
+    console.log(this._age)
+  },
+
+  set age (value) {
+    if (value > 16) {
+      this._age = value;
+    }
+  }
+}
+  
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>002-test--Closures</title>
+</head>
+<body>
+  <h1>002-test : Closures</h1>
+
+
+
+<script>
+  console.log('Started...'); 
+
+  let a = {
+    age : 16,
+  };
+
+  let b = Object.create(a, {
+    name : {value : 'Max'}
+  });
+
+  let c = {
+    color : 'red',
+  };
+  c.__proto__ = a;
+
+  function CreateObj (w) {
+    // let this = {};
+    this.width = `${w}px`;
+    // return this;
+  }
+  CreateObj.status = 'open';
+  let d = new CreateObj(100);
+
+  function Factory (h) {
+    return {
+      heigth : `${h}px`,
+    }
+  }
+  Factory.status = 'open';
+  let e = Factory(100);
+
+  function IceFactory (h) {
+    return Object.freeze({
+      heigth : `${h}px`,
+    })
+  }
+  const f = IceFactory(100);
+
+  function* Generator () {
+    yield 1;
+    yield 2;
+    yield 3;
+  }
+  let g = Generator();
+
+  let h = {
+    start : 0,
+    end : 7,
+  }
+
+  h.__proto__[Symbol.iterator] = function () {
+    let start = this.start;
+    let end = this.end;
+    return {
+      next () {
+        if (start <= end) {
+          return {
+            value : start + 1,
+            done : false,
+          }
+        } else {
+          return {
+            done : true,
+          }
+        }
+
+      }
+    }
+  } 
+
+  i = {
+    _name : 'Max',
+
+    get name () {
+      return this._name;
+    },
+
+    set name (value) {
+      if (value.length > 3) {
+        this._name = value;
+      }
+    }
+  }
+</script>
+
+
+
+</body>
+</html>

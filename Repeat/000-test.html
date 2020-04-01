@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>000-test</title>
+</head>
+<body>
+  <h1>000-test : Event Loop / Tasks / Microtasks</h1>
+
+<script>
+console.log('1');
+
+console.log('2');
+
+setTimeout(function () {
+    console.log('3');
+}, 2000);
+
+let a = new Promise(function (resolve, reject) {
+    setTimeout(function () {
+        resolve('4');
+    }, 1000)    
+}).then (function (d) {
+    console.log(d);
+});
+
+console.log('5');
+
+
+  
+</script>
+
+</body>
+</html>

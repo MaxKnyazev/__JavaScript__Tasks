@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Classes</title>
+</head>
+<body>
+  <div id="box1" style = "width: 100px; height: 100px; background-color: red;"></div>
+  <div id="box2"></div>
+  <div id="circle1"></div>
+  <button id="button1"></button>
+  <button id="button2"></button>
+  <script>
+    class Component {
+      constructor (selector) {
+        this.elem = document.querySelector(selector);
+      }
+
+      show () {
+        this.elem.style.opacity = 1;
+      }
+
+      hide () {
+        this.elem.style.opacity = 0;
+      }
+    }
+
+    let box1 = new Component ('#box1');
+
+    class Box extends Component {
+      constructor (options) {
+        super(options.selector);
+
+        this.elem.style.width = `${options.width}px`;
+        this.elem.style.height = `${options.height}px`;
+        this.elem.style.backgroundColor = options.backgroundColor;
+      }
+    }
+
+    let box2 = new Box ({
+      selector : '#box2',
+      width : 200,
+      height : 200,
+      backgroundColor : 'blue',
+    })
+
+    class Circle extends Box {
+      constructor (options) {
+        super(options);
+
+        this.elem.style.borderRadius = '50%';
+      }
+    }
+
+    let circle1 = new Circle ({
+      selector : '#circle1',
+      width : 50,
+      height : 50,
+      backgroundColor : 'green',
+    })
+
+    class Button extends Box {
+      constructor (options) {
+        super(options);
+
+        this.elem.innerHTML = options.title;
+        this.elem.addEventListener('click', function () {
+          console.log(this.innerHTML);
+        })
+      }
+    }
+
+    let button1 = new Button ({
+      selector : '#button1',
+      width : 200,
+      height : 100,
+      backgroundColor : 'yellow',
+      title : 'Нажать',
+    })
+
+    let button2 = new Button ({
+      selector : '#button2',
+      width : 100,
+      height : 50,
+      backgroundColor : 'purple',
+      title : 'Отжать',
+    })
+  </script>
+</body>
+</html>

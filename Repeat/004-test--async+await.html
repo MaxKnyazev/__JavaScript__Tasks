@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>004-test</title>
+</head>
+<body>
+  <h1>004-test : Async/Await</h1>
+
+<script>
+console.log('------------------Started script...');
+
+const delay = ms => new Promise ((resolve) => {
+    setTimeout(() => {
+      resolve();
+    }, ms)
+  })
+
+delay(2000).then(() => {console.log('2 sec')});
+
+const url = 'https://jsonplaceholder.typicode.com/todos';
+
+const fetchTodo = function () {
+  return delay(2000)
+  .then(() => fetch(url))
+  .then((response) => response.json())
+  .catch((error) => console.log(error))
+}
+
+// fetchTodo().then((data) => console.log(data));
+
+
+
+const fetchAsyncTodo = async function () {
+  try {
+    await delay(2000);
+    const response = await fetch(url);
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.log(error)
+  } finally {
+    console.log('finally')
+  }
+}
+
+fetchAsyncTodo().then((data) => console.log(data)); 
+
+
+  
+</script>
+
+</body>
+</html>

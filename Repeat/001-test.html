@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>001-test</title>
+</head>
+<body>
+  <h1>001-test : Prototypes</h1>
+
+<script>
+console.log('-----------------------------------------------Started Person...');
+
+function Person(name, age) {
+  this.name = name;
+  this.age = age;
+  this.log = function() {
+    console.log(`--> : ${this.name} ${this.age}`);
+  }
+}
+
+const ivan = new Person('Ivan', 36);
+console.dir(Person);
+console.dir(ivan);
+
+console.log('----------------------------------------------Started person2...');
+
+const person2 = {
+
+  prototype : {
+    lang : 'rus',
+
+    log() {
+      console.log(`--> : ${this.name} ${this.age}`);
+    },
+
+    getName() {
+      console.log(`name : ${this.name}`);
+    }
+  }
+
+
+}
+
+const ivan2 = {
+  name : 'Ivan2',
+  age : 72,
+}
+
+ivan2.__proto__ = person2.prototype;
+
+console.dir(ivan2);
+
+  
+</script>
+
+</body>
+</html>
