@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <style>
+    #root {
+      border-right: 1px solid black;
+      padding-right: 2px;
+      display: inline-block;
+    }
+  </style>
+</head>
+<body>
+  <div id="root"></div>
+  <script>
+    window.onload = function () {
+      let root = document.querySelector('#root');
+      function* infinity () {
+        let flag = true;
+        while (true) {
+          flag ? yield 1 : yield 2;
+          flag = !flag;
+        }
+      }
+
+      let inf = infinity();
+      console.dir(inf);
+
+      // console.log(inf.next().value);
+      // console.log(inf.next().value);
+      // console.log(inf.next().value);
+      // console.log(inf.next().value);
+      // console.log(inf.next().value);
+      // console.log(inf.next().value);
+      // console.log(inf.next().value);
+      // console.log(inf.next().value);
+      // console.log(inf.next().value);
+      // console.log(inf.next().value);
+      // console.log(inf.next().value);
+      // console.log(inf.next().value);
+      function render(word, ms) {
+        let i = 0;
+        let cto = setInterval(() => {root.innerHTML += word[i]; ++i}, ms);
+        setTimeout(() => {clearTimeout(cto)}, ms * word.length)
+      }
+
+      render('Hello worldHello worldHello worldHello worldHello world', 50);
+    }
+  </script>
+</body>
+</html>
