@@ -37,6 +37,9 @@ const fetchAsyncTodo = async function () {
   try {
     await delay(2000);
     const response = await fetch(url);
+    await console.log('after 2000 ms');
+    await delay(2000);
+    await console.log('after 2000 ms');
     const data = await response.json();
     return data;
   } catch (error) {
